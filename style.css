@@ -1,0 +1,24 @@
+@charset  "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500&display=swap');
+
+
+
+*{
+    margin: px;
+    border: 0px;
+}
+
+
+.header{
+    background-color: rgba(34, 39, 41, 1);
+
+}
+
+.menu{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    color: white;
+}
+
