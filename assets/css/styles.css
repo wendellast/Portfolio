@@ -1224,8 +1224,7 @@ canvas {
 }
 
 #minhaMusica {
-  width: 14rem;
-  margin: 10px 10px;
+  width: auto;
   background-color: #2727279a;
   border: 1.9px solid #3bb5fc;
   border-radius: 30px;
