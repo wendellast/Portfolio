@@ -1224,13 +1224,14 @@ canvas {
 }
 
 #minhaMusica {
-  width: auto;
+  width: 14rem;
+  margin: 10px 10px;
   background-color: #2727279a;
-  border: 1.9px solid #3bb5fc;
+  border: 1.9px solid #a395e9;
   border-radius: 30px;
   outline: none;
-  border-color: #3bb5fc;
-  box-shadow: 0 0 20px #3bb5fc;
+  border-color: #a395e9;
+  box-shadow: 0 0 20px #a395e9;
 }
 #minhaMusica::-webkit-media-controls-panel {
   background-color: #07070741;
@@ -1238,10 +1239,38 @@ canvas {
 }
 
 #minhaMusica::-webkit-media-controls-pause-button {
-  background-color: #3bb5fc;
+  background-color: #a395e9;
 }
 
 #minhaMusica::-webkit-media-controls-current-time-display,
 #minhaMusica::-webkit-media-controls-time-remaining-display {
   color: #000;
+}
+
+
+@media (max-width: 800px) {
+  
+    #minhaMusica {
+        max-width: 5rem;
+        background-color: #2727279a;
+        border: 1.9px solid #a395e9;
+        border-radius: 30px;
+        outline: none;
+        border-color: #a395e9;
+        box-shadow: 0 0 20px #a395e9;
+      }
+
+    #minhaMusica::-webkit-media-controls-panel {
+        background-color: #07070741;
+        border-radius: none;
+      }
+
+    #minhaMusica::-webkit-media-controls-pause-button {
+        background-color: #a395e9;
+      }
+
+    #minhaMusica::-webkit-media-controls-current-time-display,
+    #minhaMusica::-webkit-media-controls-time-remaining-display {
+        color: #000;
+      }
 }
