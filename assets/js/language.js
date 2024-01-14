@@ -4,7 +4,7 @@ document.getElementById("lang").addEventListener("change", function() {
     if (lang == "en"){
         location.reload()
     }
-    
+
     var translations = {
     "pt-br": {
         "im": "Olá, Eu sou",
@@ -24,7 +24,7 @@ document.getElementById("lang").addEventListener("change", function() {
         "touchl": "Entrar em contato",
         "contamell": "Contate-Me",
         "talkl": "Fale comigo",
-        "writeme": "Escreva-me sua mensagem",
+        "writeme": "Escreva-me sua mensagem 'ANÔNIMO'",
         "myport":"Meu Portfolio",
         "recent-work": "Trabalho recente",
         "toolsl": "Ferramentas",
