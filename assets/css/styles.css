@@ -377,7 +377,28 @@ body.light-theme {
   display: flex;
   font-size: 1rem;
   transition: 0.4s;
+  
 }
+
+#lang.home__social-link {
+  width: max-content;
+  min-width: max-content;
+  background-color: var(--container-color);
+  color: var(--first-color);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  display: flex;
+  font-size: 0.8rem; /* Ajuste o valor conforme necessário */
+  transition: 0.4s;
+}
+
+#lang.home__social-link:focus,
+#lang.home__social-link:hover {
+  font-size: 0.8rem; /* Ajuste o valor conforme necessário */
+}
+
+
+
 
 .home__social-link:hover {
   background-color: var(--first-color);

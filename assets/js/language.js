@@ -1,6 +1,9 @@
 document.getElementById("lang").addEventListener("change", function() {
     var lang = document.getElementById("lang").value;
 
+    if (lang == "en"){
+        location.reload()
+    }
     
     var translations = {
     "pt-br": {
@@ -31,10 +34,8 @@ document.getElementById("lang").addEventListener("change", function() {
         "skills2l": "Habilidades",
         "worrk2": "Projetos",
         "contact2k": "Contato"
-
-
     }
-    
+
     };
 
 
@@ -68,3 +69,5 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("worrk2").textContent = translations[lang]["worrk2"];
     document.getElementById("contact2k").textContent = translations[lang]["contact2k"];
 });
+
+
