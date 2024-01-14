@@ -37,9 +37,10 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">Wendellast</a>
-            <section class="nav__logo"> <audio id="minhaMusica" controls="false">
-                <source src="assets/music/snowfall.mp3" type="audio/mp3">
-            </audio></section>
+            <div class="audio-container">
+                <button class="styled-button" id="playButton">Play</button>
+                <audio id="audioPlayer" src="assets/music/snowfall.mp3" preload="auto"></audio>
+              </div>
             <div class="nav__menu">
                 <ul class="nav__list">
                     <li class="nav__item ">
@@ -609,8 +610,8 @@
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/language.js"></script>
+    <script src="assets/js/music.js"></script>
     
-    <script defer src="assets/js/message.js"></script>
     
 </body>
 
