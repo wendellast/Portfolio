@@ -7,7 +7,7 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  /*   
+  /*
         Purple: hsl(250, 66%, 75%)
         Blue: hsl(207, 90%, 72%)
         Pink: hsl(356, 66%, 75%)
@@ -130,8 +130,8 @@ body.light-theme {
   --container-color: #e9e9e9;
 }
 
-/*========== 
-    Color changes in some parts of 
+/*==========
+    Color changes in some parts of
     the website, in light theme
 ==========*/
 .light-theme .scroll-header {
@@ -377,7 +377,7 @@ body.light-theme {
   display: flex;
   font-size: 1rem;
   transition: 0.4s;
-  
+
 }
 
 #lang.home__social-link {
@@ -461,6 +461,8 @@ body.light-theme {
 .about__img {
   width: 260px;
   justify-self: center;
+  position:relative;
+  animation: desenhoAnimacao 2.1s infinite alternate-reverse linear;
 }
 
 .about__data {
@@ -1244,6 +1246,7 @@ canvas {
   z-index: -10;
 }
 
+/*Music*/
 #minhaMusica {
   width: 14rem;
   margin: 10px 10px;
@@ -1269,7 +1272,7 @@ canvas {
 }
 
 @media (max-width: 750px) {
-  
+
   .styled-button {
     max-width: 6rem;
     background-color: #2727279a;
@@ -1282,4 +1285,14 @@ canvas {
     padding: 10px 20px;
     cursor: pointer;
   }
+}
+
+/*Animation-photo*/
+@keyframes desenhoAnimacao {
+    from {
+        top:-3px;
+    }
+    to {
+        top: 25px;
+    }
 }
