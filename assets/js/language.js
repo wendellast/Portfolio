@@ -24,7 +24,7 @@ document.getElementById("lang").addEventListener("change", function() {
         "touchl": "Entrar em contato",
         "contamell": "Contate-Me",
         "talkl": "Fale comigo",
-        "writeme": "Escreva-me sua mensagem 'ANÔNIMO'",
+        "writeme": "Escreva-me sua mensagem",
         "myport":"Meu Portfolio",
         "recent-work": "Trabalho recente",
         "toolsl": "Ferramentas",

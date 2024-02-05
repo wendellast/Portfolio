@@ -507,19 +507,21 @@
                 </div>
 
                 <div class="contact__content">
-                    <h3 id="writeme" class="contact__title contact__title-form">Write Me your Message "ANONYMOUS"</h3>
+                    <h3 id="writeme" class="contact__title contact__title-form">Write Me your Message</h3>
 
-                    <form action="https://formsubmit.co/wendelalvesj@hotmail.com" class="contact__form"
-                        id="contact-form" method="POST">
+                    <form action="https://api.staticforms.xyz/submit" class="contact__form" id="contact-form"
+                        method="POST">
                         <div class="contact__form-div">
+
                             <label for="name" class="contact__form-tag">Name</label>
-                            <input type="text" placeholder="Enter name" class="contact__form-input" id="name" required>
+                            <input type="text" name="name" placeholder="Enter name" class="contact__form-input"
+                                id="name" required>
                         </div>
 
                         <div class="contact__form-div">
                             <label for="email" class="contact__form-tag">Email</label>
-                            <input type="email" placeholder="Enter email" class="contact__form-input" id="email"
-                                required>
+                            <input type="email" name="email" placeholder="Enter email" class="contact__form-input"
+                                id="email" required>
                         </div>
 
                         <div class="contact__form-div contact__form-area">
@@ -532,10 +534,9 @@
                             Send Message
                         </button>
 
-                        <input type="hidden" name="_subject" value="Novo Contato!">
-                        <input type="hidden" name="_next" value="https://portfolio-nine-lovat-40.vercel.app/assets/pages/success.html">
-                        <input type="text" name="_honey" style="display:none">
-                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="accessKey" value="bb1be617-4b46-40c7-b50a-3653d0431faa">
+                        <input type="hidden" name="redirectTo"
+                            value="https://portfolio-nine-lovat-40.vercel.app/assets/pages/success.html">
                     </form>
 
                 </div>
@@ -579,7 +580,8 @@
                     </a>
                 </li>
                 <li class="footer__social-item">
-                    <a href="https://www.linkedin.com/in/wendel-alves-b0b5332a0/" target="_blank" class="footer__social-link">
+                    <a href="https://www.linkedin.com/in/wendel-alves-b0b5332a0/" target="_blank"
+                        class="footer__social-link">
                         <i class='bx bxl-linkedin footer__social-icon'></i>
                     </a>
                 </li>
@@ -618,7 +620,7 @@
 
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      </script>
+    </script>
     <script defer src="/_vercel/insights/script.js"></script>
 
 
