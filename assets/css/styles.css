@@ -459,6 +459,7 @@ body.light-theme {
 }
 
 .about__img {
+  border-radius: 40%;
   width: 260px;
   justify-self: center;
   position:relative;
