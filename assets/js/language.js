@@ -1,11 +1,11 @@
 document.getElementById("lang").addEventListener("change", function() {
-    var lang = document.getElementById("lang").value;
+    const lang = document.getElementById("lang").value;
 
     if (lang == "en"){
         location.reload()
     }
 
-    var translations = {
+    let translations = {
     "pt-br": {
         "im": "Olá, Eu sou",
         "dev": "Desenvolvedor de Software",
