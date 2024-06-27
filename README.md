@@ -23,7 +23,7 @@
 - [Why so many programmers are giving up](https://medium.com/@wendellast2a/why-so-many-programmers-are-giving-up-and-what-can-be-done-to-reverse-this-trend-88ff741737c5)
 
 
-### 📺 &nbsp;Utimos projetos no github
+### 📺 &nbsp;My Latest Projects
 
 
 - [Sara-IA](https://github.com/wendellast/Sara-IA-QT)
