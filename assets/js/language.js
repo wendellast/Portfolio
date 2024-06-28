@@ -16,7 +16,7 @@ document.getElementById("lang").addEventListener("change", function() {
         "competedl": "Concluido",
         "projectsl": "5+ Projetos",
         "suportel": "Suporte",
-        "descriptionll":"Olá! Meu nome é Wendel Alves e tenho uma paixão genuína pela criação de conteúdo online. Minha jornada no desenvolvimento web começou em 2021, quando me aventurei a  criar e modificar o site e aplicativos.  Surpreendentemente, o processo de criação de sistemas e automações  me ensinou lições valiosas sobre html e css, python Avançando até os dias atuais, ganhei uma experiência valiosa desenvovendo projetos com chatbot and llms, e até tive o privilégio de contribuir com projetos de  desenvolvedor web para estudantes.",
+        "descriptionll":"Olá, meu nome é Wendel Alves. Sou desenvolvedor de software com foco na área de backend web. Atualmente, trabalho com as linguagens de programação Python, Go e JavaScript. Desenvolvo sites e aplicações completas utilizando ferramentas como Django e Gin-Gonic para aperfeiçoamento.  Estou sempre em busca de novos conhecimentos e desafios. Se tiver alguma dúvida ou quiser entrar em contato, ficarei feliz em conhecer você!",
         "contactl": "Contate-Me",
         "abilityl": "Minhas Habilidades",
         "experienci2l": "Minhas Experiências",

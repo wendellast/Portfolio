@@ -757,10 +757,8 @@ body.light-theme {
     border: 0;
     height: 1px;
     background: radial-gradient(circle, var(--first-color) 0%, transparent 50%);
-    margin: 20px 0; /* Ajuste conforme necessário */
+    margin: 20px 0;
   }
-
-
 
 /*=============== TESTIMONIAL ===============*/
 .testimonial__card {
