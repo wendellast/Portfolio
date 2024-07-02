@@ -5,6 +5,7 @@ document.getElementById("lang").addEventListener("change", function() {
         location.reload()
     }
 
+
     let translations = {
     "pt-br": {
         "im": "Olá, Eu sou",
@@ -16,7 +17,8 @@ document.getElementById("lang").addEventListener("change", function() {
         "competedl": "Concluido",
         "projectsl": "5+ Projetos",
         "suportel": "Suporte",
-        "descriptionll":"Olá, meu nome é Wendel Alves. Sou desenvolvedor de software com foco na área de backend web. Atualmente, trabalho com as linguagens de programação Python, Go e JavaScript. Desenvolvo sites e aplicações completas utilizando ferramentas como Django e Gin-Gonic para aperfeiçoamento.  Estou sempre em busca de novos conhecimentos e desafios. Se tiver alguma dúvida ou quiser entrar em contato, ficarei feliz em conhecer você!",
+        "descriptionll1":"Olá, meu nome é Wendel Alves. Sou desenvolvedor de software com foco na área de backend web. Atualmente, trabalho com as linguagens de programação Python, Go e JavaScript. Desenvolvo sites e aplicações completas utilizando ferramentas como Django e Gin-Gonic para aperfeiçoamento.",
+        "descriptionll2":"Estou sempre em busca de novos conhecimentos e desafios. Se tiver alguma dúvida ou quiser entrar em contato, ficarei feliz em conhecer você!",
         "contactl": "Contate-Me",
         "abilityl": "Minhas Habilidades",
         "experienci2l": "Minhas Experiências",
@@ -50,7 +52,8 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("competedl").textContent = translations[lang]["competedl"];
     document.getElementById("projectsl").textContent = translations[lang]["projectsl"];
     document.getElementById("suportel").textContent = translations[lang]["suportel"];
-    document.getElementById("descriptionll").textContent = translations[lang]["descriptionll"];
+    document.getElementById("descriptionll1").textContent = translations[lang]["descriptionll1"];
+    document.getElementById("descriptionll2").textContent = translations[lang]["descriptionll2"];
     document.getElementById("contactl").textContent = translations[lang]["contactl"];
     document.getElementById("abilityl").textContent = translations[lang]["abilityl"];
     document.getElementById("experienci2l").textContent = translations[lang]["experienci2l"];
