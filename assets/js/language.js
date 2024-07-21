@@ -1,8 +1,14 @@
 document.getElementById("lang").addEventListener("change", function() {
     const lang = document.getElementById("lang").value;
+    const body = document.querySelector('body');
 
+// Altera a fonte usando o estilo CSS
     if (lang == "en"){
-        location.reload()
+        location.reload();
+    }
+
+    if (lang == "phyrexia"){
+        body.style.fontFamily = 'phyrexiaFont';
     }
 
 
@@ -31,7 +37,7 @@ document.getElementById("lang").addEventListener("change", function() {
         "recent-work": "Trabalho recente",
         "toolsl": "Ferramentas",
         "submit": "Enviar Messagem",
-        "awbo": "Tudo Será Um",
+        "awbo": "Tudo Sera Um",
         "aboutl2": "Sobre",
         "skills2l": "Habilidades",
         "worrk2": "Projetos",
