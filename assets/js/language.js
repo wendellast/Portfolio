@@ -37,7 +37,7 @@ document.getElementById("lang").addEventListener("change", function() {
         "recent-work": "Trabalho recente",
         "toolsl": "Ferramentas",
         "submit": "Enviar Messagem",
-        "awbo": "Tudo Sera Um",
+        "awbo": "Tudo Será Um",
         "aboutl2": "Sobre",
         "skills2l": "Habilidades",
         "worrk2": "Projetos",
