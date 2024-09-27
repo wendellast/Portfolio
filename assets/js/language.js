@@ -41,7 +41,9 @@ document.getElementById("lang").addEventListener("change", function() {
         "aboutl2": "Sobre",
         "skills2l": "Habilidades",
         "worrk2": "Projetos",
-        "contact2k": "Contato"
+        "contact2k": "Contato",
+        "abountt":"Sobre",
+        "myblog":"Meu Blog"
     }
 
     };
@@ -49,6 +51,8 @@ document.getElementById("lang").addEventListener("change", function() {
 
 
     // Atualize o conteúdo do site com as traduções corretas
+    document.getElementById("myblog").textContent = translations[lang]["myblog"];
+    document.getElementById("abountt").textContent = translations[lang]["abountt"];
     document.getElementById("im").textContent = translations[lang]["im"];
     document.getElementById("dev").textContent = translations[lang]["dev"];
     document.getElementById("introl").textContent = translations[lang]["introl"];
