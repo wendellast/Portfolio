@@ -701,6 +701,7 @@ body.light-theme {
     background-color: var(--container-color);
     padding: 1rem;
     border-radius: 1rem;
+    z-index: 2;
 }
 
 .work__img {
@@ -773,6 +774,13 @@ body.light-theme {
     height: 1px;
     background: radial-gradient(circle, var(--first-color) 0%, transparent 50%);
     margin: 20px 0;
+}
+
+.arrow {
+    cursor: pointer;
+    color: var(--first-color-alt);
+    padding: 10px;
+    font-size: 2.2rem;;
 }
 
 /*=============== TESTIMONIAL ===============*/
@@ -1312,7 +1320,6 @@ body.light-theme {
 canvas {
     display: block;
     position: fixed;
-    z-index: -10;
 }
 
 /*Music*/
