@@ -1,14 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-@font-face {
-    font-family: 'phyrexiaFont';
-    src: url('../fonts/PhyrexiaFontV2.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 /*=============== VARIABLES CSS ===============*/
 :root {
     --header-height: 3.5rem;

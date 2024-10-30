@@ -8,11 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
       playButton.style.display = 'none';
   
-      audioPlayer.outerHTML = `
-        <audio id="minhaMusica" controls autoplay>
-          <source src="assets/music/snowfall.mp3" type="audio/mp3">
-        </audio>
-      `;
     }
   
     
