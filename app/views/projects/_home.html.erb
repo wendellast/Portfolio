@@ -1,0 +1,48 @@
+<section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span id="im" class="home__greeting">Hello, I'm</span>
+                    <h1 class="home__name">Wendel Alves</h1>
+                    <h3 id="dev" class="home__education">Software Developer</h3>
+
+                    <div class="home__button">
+                        <%= link_to 'Download CV', asset_path('wendellast"s-Cv.pdf'), download: true, class: 'button button--ghost' %>
+
+
+                        <a href="#about"  id="abountt" class="button">About</a>
+                        
+                        <%= link_to 'My Blog', 'https://wendellast.github.io/', target: '_blank', id: 'myblog', class: 'button button--ghost' %>
+
+
+                    </div>
+                </div>
+
+
+                <div class="home__social">
+                    <%= link_to 'https://www.linkedin.com/in/wendellast/', target: '_blank', class:     'home__social-link' do %>
+                        <i class='bx bxl-linkedin'></i>
+                    <% end %>
+
+                    <%= link_to 'https://github.com/wendellast', target: '_blank', class:     'home__social-link' do %>
+                       <i class='bx bxl-github'></i>
+                    <% end %>
+                     
+                    <%= link_to asset_path('wendellast"s-Cv.pdf'), download: true, class: 'home__social-link' do %>
+                        <iconify-icon icon="material-symbols:download-rounded"></iconify-icon>
+                   <% end %>
+                    
+                    <select id="lang" class="home__social-link">
+
+                        <option value="en">En</option>
+                        <option value="pt-br">Pt-br</option>
+                        <option value="phyrexia">Phyrexia</option>
+
+                    </select>
+                </div>
+
+                <a href="#about" class="home__scroll">
+                    <i class='bx bx-mouse home__scroll-icon'></i>
+                    <span class="home__scroll-name">Scroll Down</span>
+                </a>
+            </div>
+</section>
