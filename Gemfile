@@ -31,7 +31,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'pg'
+
 gem 'ostruct'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -48,6 +48,10 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+group :production do
+  gem 'pg'
+end
+
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
