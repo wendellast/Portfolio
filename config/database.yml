@@ -5,20 +5,13 @@ default: &default
   sslmode: require  # Habilita o uso de SSL para a conexão
 
 development:
-  <<: *default
-  database: <%= ENV['PGDATABASE'] %>
-  username: <%= ENV['PGUSER'] %>
-  password: <%= ENV['PGPASSWORD'] %>
-  host: <%= ENV['PGHOST'] %>
-  port: <%= ENV['PGPORT'] %>
+  adapter: sqlite3  # Usando SQLite para desenvolvimento
+  database: db/development.sqlite3
+
 
 test:
-  <<: *default
-  database: <%= ENV['PGDATABASE'] %>_test
-  username: <%= ENV['PGUSER'] %>
-  password: <%= ENV['PGPASSWORD'] %>
-  host: <%= ENV['PGHOST'] %>
-  port: <%= ENV['PGPORT'] %>
+  adapter: sqlite3  # Usando SQLite para desenvolvimento
+  database: db/development.sqlite3
 
 production:
   <<: *default
