@@ -1,24 +1,20 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV["PGHOST"] || ENV["POSTGRES_HOST"] %>
-  port: <%= ENV["PGPORT"] || 5432 %>
-  username: <%= ENV["PGUSER"] || ENV["POSTGRES_USER"] %>
-  password: <%= ENV["PGPASSWORD"] || ENV["POSTGRES_PASSWORD"] %>
-  database: <%= ENV["PGDATABASE"] || ENV["POSTGRES_DB"] %>
-  url: <%= ENV["DATABASE_URL"] %>
-
 development:
   <<: *default
-  database: <%= ENV["PGDATABASE"] || "development_db" %>
-
+  host: <%= ENV["APP_RAILWAY_DATABASE_HOST"] %>
+  database: <%= ENV["APP_RAILWAY_DATABASE_NAME"] %>
+  username: <%= ENV["APP_RAILWAY_DATABASE_USERNAME"] %>
+  password: <%= ENV["APP_RAILWAY_DATABASE_PASSWORD"] %>
 test:
   <<: *default
-  database: <%= ENV["PGDATABASE"] || "test_db" %>
-
+  host: <%= ENV["TEST_APP_RAILWAY_DATABASE_HOST"] %> 
+  database: <%= ENV["TEST_RAILWAY_DATABASE_NAME"] %>
+  username: <%= ENV["TEST_RAILWAY_DATABASE_USERNAME"] %>
+  password: <%= ENV["TEST_RAILWAY_DATABASE_PASSWORD"] %>
 production:
   <<: *default
-  database: <%= ENV["PGDATABASE"] || ENV["POSTGRES_DB"] %>
   url: <%= ENV["DATABASE_URL"] %>
-  sslmode: <%= ENV["SSL_CERT_DAYS"] ? "require" : "disable" %>
+  host: <%= ENV["PGHOST"] %>
+  database: <%= ENV["PGDATABASE"] %>
+  username: <%= ENV["PGUSER"] %>
+  password: <%= ENV["PGPASSWORD"] %>
+  port: <%= ENV["PGPORT"] %>
