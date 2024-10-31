@@ -1,20 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  sslmode: require  # Habilita o uso de SSL para a conexão
+
 development:
   <<: *default
-  host: <%= ENV["APP_RAILWAY_DATABASE_HOST"] %>
-  database: <%= ENV["APP_RAILWAY_DATABASE_NAME"] %>
-  username: <%= ENV["APP_RAILWAY_DATABASE_USERNAME"] %>
-  password: <%= ENV["APP_RAILWAY_DATABASE_PASSWORD"] %>
+  database: <%= ENV['PGDATABASE'] %>
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
+  host: <%= ENV['PGHOST'] %>
+  port: <%= ENV['PGPORT'] %>
+
 test:
   <<: *default
-  host: <%= ENV["TEST_APP_RAILWAY_DATABASE_HOST"] %> 
-  database: <%= ENV["TEST_RAILWAY_DATABASE_NAME"] %>
-  username: <%= ENV["TEST_RAILWAY_DATABASE_USERNAME"] %>
-  password: <%= ENV["TEST_RAILWAY_DATABASE_PASSWORD"] %>
+  database: <%= ENV['PGDATABASE'] %>_test
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
+  host: <%= ENV['PGHOST'] %>
+  port: <%= ENV['PGPORT'] %>
+
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
-  host: <%= ENV["PGHOST"] %>
-  database: <%= ENV["PGDATABASE"] %>
-  username: <%= ENV["PGUSER"] %>
-  password: <%= ENV["PGPASSWORD"] %>
-  port: <%= ENV["PGPORT"] %>
+  database: <%= ENV['PGDATABASE'] %>
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
+  host: <%= ENV['PGHOST'] %>
+  port: <%= ENV['PGPORT'] %>
