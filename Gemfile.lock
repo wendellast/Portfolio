@@ -205,7 +205,7 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
-    rake (13.1.0)
+    rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
@@ -319,7 +319,7 @@ DEPENDENCIES
   pg
   puma (>= 5.0)
   rails (~> 7.2.2)
-  rake (= 13.1.0)
+  rake (= 13.2.1)
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
