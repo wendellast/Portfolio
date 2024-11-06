@@ -1,6 +1,6 @@
 ### <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px" height="30px"> Hello, I'm Wendel Alves (wendellast)!
 
-⭐ &nbsp; I'm a [Backend Software Developer](https://wendellast-portfolio.vercel.app/) <br>
+⭐ &nbsp; I'm a Backend Software Developer<br>
 💻 &nbsp;Student of the Analysis and Systems Development (ADS) program at [UNIFG](https://www.centrouniversitariounifg.edu.br/) <br>
 🏡 &nbsp;Graduated in Robotics with Arduino from [IFBaiano](https://www.ifbaiano.edu.br/unidades/guanambi/)<br>
 🌎 &nbsp;Native of Brazil, born in the city of Guanambi, Bahia.
