@@ -1,28 +1,40 @@
 
 services:
-  web:
+  portfolio:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: portfolio
     ports:
-      - "8000:8000"
+      - "${PORTFOLIO_PORT}:${PORTFOLIO_PORT}"
     env_file: 
       - .env
     volumes:
       - .:/app
     depends_on:
       - db
+    networks:
+      - project_network
 
   db:
-    image: postgres:15
+    image: postgres:17
     environment:
-      POSTGRES_USER: django
-      POSTGRES_PASSWORD: django
-      POSTGRES_DB: django_db
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:5432"
+    networks:
+      - project_network
+
 
 volumes:
   postgres_data:
+
+networks:
+  project_network:
+    external: true 
+
+
