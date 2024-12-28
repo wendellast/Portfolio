@@ -27,7 +27,7 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ['true', '1']
 print(DEBUG)
 
 ALLOWED_HOSTS = [os.getenv('host1'), os.getenv('host2'), os.getenv('host3')]
-CSRF_TRUSTED_ORIGINS = [f"http://{os.getenv('host1')}", f"http://{os.getenv('host2')}", f"http://{os.getenv('host3')}"]
+CSRF_TRUSTED_ORIGINS = [f"https://{os.getenv('host1')}", f"https://{os.getenv('host2')}", f"http://{os.getenv('host3')}"]
 
 # Application definition
 
