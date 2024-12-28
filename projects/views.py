@@ -1,8 +1,19 @@
-from django.shortcuts import render
 from .models import Project
+from django.views.generic import ListView
 
-def project_list(request):
-    projects = Project.objects.all()
-    for project in projects:
-        project.tag_list = [tag.strip() for tag in project.tags.split(',')]
-    return render(request, 'portfolio.html', {'projects': projects})
+
+class ProjectListView(ListView):
+    model = Project
+    template_name = 'portfolio.html'
+    context_object_name = 'projects'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        for project in queryset:
+            project.tag_list = [tag.strip() for tag in project.tags.split(',')]
+        return queryset
+
+class PageSuccess(ListView):
+    model = Project
+    context_object_name = "projects"
+    template_name = "success.html"
