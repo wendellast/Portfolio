@@ -1,0 +1,40 @@
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio
+    ports:
+      - "${PORTFOLIO_PORT}:${PORTFOLIO_PORT}"
+    env_file: 
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    networks:
+      - project_network
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    networks:
+      - project_network
+
+
+volumes:
+  postgres_data:
+
+networks:
+  project_network:
+    external: true 
+
+

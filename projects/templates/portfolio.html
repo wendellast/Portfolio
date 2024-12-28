@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "partials/_particules.html" %}
+{% include "partials/_header.html" %}
+
+ <!--=============== MAIN ===============-->
+ <main class="main">
+    <!--=============== HOME ===============-->
+    {% include "partials/_home.html" %}
+    <!--=============== ABOUT ===============-->
+    {% include "partials/_about.html" %}
+
+    <!--=============== SKILLS ===============-->
+    {% include "partials/_skills.html" %}
+    <!--=============================== Experince============= -->
+
+    <!--=============== WORK ===============-->
+    {% include "partials/_work.html" %}
+
+
+    <!--=============== CONTACT ===============-->
+    {% include "partials/_contact.html" %}
+    
+</main>
+
+<!--=============== FOOTER ===============-->
+{% include "partials/_footer.html" %}
+
+{% endblock content %}

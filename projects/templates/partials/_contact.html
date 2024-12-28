@@ -1,0 +1,82 @@
+<section class="contact section" id="contact">
+    <sapn id="touchl" class="section__subtitle">Get in touch</sapn>
+    <h3 id="contamell" class="section__title">Contact Me</h3>
+
+    <div class="contact__container container grid">
+        <div class="contact__content">
+            <h3 id="talkl" class="contact__title contact__title-info">Talk to me</h3>
+
+            <div class="contact__info">
+                <div class="contact__card">
+                    <i class='bx bx-mail-send contact__card-icon'></i>
+                    <h3 class="contact__card-title">Email</h3>
+                    <span class="contact__card-data">wendelalvesj@hotmail.com</span>
+
+                    <a href="mailto:wendelalvesj@hotmail.com" target="_blank" class="contact__button">
+                        Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
+                    </a>
+                </div>
+
+                <div class="contact__card">
+                    <i class='bx bxl-discord contact__card-icon'></i>
+                    <h3 class="contact__card-title">Discord</h3>
+                    <span class="contact__card-data">wendellast</span>
+
+                    <a href="https://discord.com/users/wendellast" target="_blank" class="contact__button">
+                        Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
+                    </a>
+                </div>
+
+                <div class="contact__card">
+                    <i class='bx bxl-telegram contact__card-icon'></i>
+                    <h3 class="contact__card-title">Telegram</h3>
+                    <span class="contact__card-data">wendellast</span>
+
+                    <a href="https://t.me/wendellast" target="_blank" class="contact__button">
+                        Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact__content">
+            <h3 id="writeme" class="contact__title contact__title-form">Write Me your Message</h3>
+
+            <form action="https://api.staticforms.xyz/submit" class="contact__form" id="contact-form" method="POST">
+                {% csrf_token %}
+                <div class="contact__form-div">
+                    <label for="name" class="contact__form-tag">Name</label>
+                    <input type="text" name="name" placeholder="Your Name" class="contact__form-input" id="name" required>
+                </div>
+            
+                <div class="contact__form-div">
+                    <label for="email" class="contact__form-tag">Email</label>
+                    <input type="email" name="email" placeholder="Your Email" class="contact__form-input" id="email" required>
+                </div>
+            
+                <div class="contact__form-div contact__form-area">
+                    <label for="message" class="contact__form-tag">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Write your Message" class="contact__form-input" required></textarea>
+                </div>
+            
+                <div class="contact__form-div" style="display:none;">
+                    <label for="honeypot" class="contact__form-tag">Honeypot</label>
+                    <input type="text" name="honeypot" id="honeypot">
+                </div>
+            
+                <input type="hidden" name="accessKey" value="bb1be617-4b46-40c7-b50a-3653d0431faa">
+                <input type="hidden" name="subject" value="Contact us from - wendelalvesj@hotmail.com">
+                <input type="hidden" name="replyTo" value="@">
+                <input type="hidden" name="redirectTo" value="https://hublast.com/success-email/">
+            
+                <button type="submit" class="button" id="submit">
+                    Send Message
+                </button>
+            </form>
+            
+        
+
+        </div>
+
+</section>
+
