@@ -8,10 +8,11 @@ class ProjectListView(ListView):
     context_object_name = 'projects'
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().order_by('create_at')
         for project in queryset:
             project.tag_list = [tag.strip() for tag in project.tags.split(',')]
         return queryset
+
 
 class PageSuccess(ListView):
     model = Project

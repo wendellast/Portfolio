@@ -706,6 +706,7 @@ body.light-theme {
 .work__img {
     border-radius: 1rem;
     margin-bottom: 0.75rem;
+    margin-top: 1rem;
 }
 
 .work__title {
@@ -735,9 +736,48 @@ body.light-theme {
     transform: translateX(0.25rem);
 }
 
+
+.work__buttons {
+    width: max-content;
+    color: var(--first-color);
+    font-size: var(--small-font-size);
+    display: flex;
+    
+    column-gap: 0.25rem;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    text-align: center;
+}
+
+
+.work__buttons:hover .work__icon {
+    transform: translateX(0.25rem);
+}
+
 .work__icon {
     font-size: 1rem;
     transition: 0.4s;
+}
+
+.work__button-ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.2rem;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: #fff;
+    
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0 0 8px 0;
+    z-index: 10;
+}
+
+
+
+.work__button-ribbon:hover {
+    transform: scale(1.1);
 }
 
 .tags-container {
@@ -813,6 +853,90 @@ body.light-theme {
 
 
 
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); 
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background: linear-gradient(145deg,var(--first-color-alt), var(--first-color));
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    color: #6a0dad;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #8b008b;
+}
+
+/* Modal Image */
+.modal-img {
+    width: 80%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+
+
+
+/* Modal Title */
+.modal-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #4b0082;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Description */
+.modal-description {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    font-family: var(--font-medium), sans-serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 

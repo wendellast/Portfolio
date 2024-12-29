@@ -2,31 +2,35 @@
     <span id="myport" class="section__subtitle">My Portfolio</span>
     <h2 id="recent-work" class="section__title">Recent Works</h2>
 
-    <div class="work__filters">
-
-
-    </div>
+    <div class="work__filters"></div>
     <div class="work__container container grid">
         {% for project in projects %}
         <div class="work__card mix web">
+            <div class="work__ribbon">
+                <button data-description="{{ project.description }}"  data-title="{{ project.name }}" class="work__button-ribbon">
+                    Descrição do Projeto
+                </button>
+            </div>
+    
             <img src="{{ project.image.url }}" alt="Imagem de {{ project.name }}" class="work__img">
-
+    
             <h3 class="work__title">{{ project.name }}</h3>
+            
             <hr class="gradient-hr">
-
+    
             <div class="tags-container">
                 {% for tag in project.tag_list %}
                 <a class="tag">{{ tag }}</a>
                 {% endfor %}
             </div>
             <hr class="gradient-hr">
-
+    
             {% if project.website_link %}
             <a href="{{ project.website_link }}" target="_blank" class="work__button">
                 Demo <i class='bx bx-right-arrow work__icon'></i>
             </a>
             {% endif %}
-
+    
             {% if project.github_link %}
             <a href="{{ project.github_link }}" target="_blank" class="work__button">
                 Github Link <i class='bx bxl-github'></i>
@@ -36,3 +40,50 @@
         {% endfor %}
     </div>
 </section>
+
+<!-- Modal Structure -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close-button">&times;</span>
+        
+        <h3 id="modalTitle" class="modal-title"></h3>
+        <p id="modalDescription" class="modal-description"></p>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("projectModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+
+    const descriptionButtons = document.querySelectorAll(".work__button-ribbon");
+
+    descriptionButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const description = button.getAttribute("data-description");
+            
+            const title = button.getAttribute("data-title");
+
+            
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+
+            modal.style.display = "flex";
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", event => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+</script>
