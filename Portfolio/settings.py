@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ['true', '1']
-print(DEBUG)
+
 
 ALLOWED_HOSTS = [os.getenv('host1'), os.getenv('host2'), os.getenv('host3')]
 CSRF_TRUSTED_ORIGINS = [f"https://{os.getenv('host1')}", f"https://{os.getenv('host2')}", f"http://{os.getenv('host3')}"]
@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #My Apps
     'projects',
     'userauths',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -142,6 +146,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "templates/static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_ROOT = BASE_DIR / 'media'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
