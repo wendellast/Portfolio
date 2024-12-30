@@ -949,6 +949,38 @@ body.light-theme {
         transform: translateY(0);
     }
 }
+/* Estilo do ícone de IA */
+.chatbot-icon {
+    font-size: 2rem; /* Ajuste o tamanho do ícone */
+    color: #3498db; /* Cor inicial */
+    border-radius: 20%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animação para brilho e rotação */
+.chatbot-icon:hover {
+    transform: rotate(360deg); /* Faz o ícone girar */
+    box-shadow: 0 0 15px 5px rgba(52, 152, 219, 0.6); /* Adiciona brilho */
+    color: #4caf50; /* Muda a cor ao passar o mouse */
+}
+
+/* Adiciona uma animação contínua */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(52, 152, 219, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.6);
+    }
+}
+
+.chatbot-icon {
+    animation: glowing 2s infinite; /* Faz o brilho pulsar continuamente */
+}
+
 
 
 
