@@ -204,6 +204,7 @@ body.light-theme {
     max-width: 968px;
     margin-left: 1rem;
     margin-right: 1rem;
+    
 }
 
 .grid {
@@ -703,6 +704,7 @@ body.light-theme {
     background-color: var(--container-color);
     padding: 1rem;
     border-radius: 1rem;
+    z-index: 2;
 }
 
 .work__img {
@@ -762,7 +764,6 @@ body.light-theme {
 }
 
 .work__button-ribbon {
-    position: absolute;
     top: 0;
     left: 0;
     padding: 0.2rem;
@@ -773,7 +774,8 @@ body.light-theme {
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 0 0 8px 0;
-    z-index: 10;
+    z-index: 2;
+ 
 }
 
 
@@ -849,6 +851,69 @@ body.light-theme {
 
 .swiper-pagination-bullet-active {
     background-color: var(--first-color);
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    gap: 1rem;              
+    margin: 2rem 0;         
+    z-index: 2;
+}
+
+.pagination__button {
+    z-index: 2;
+    display: flex;              
+    justify-content: center;    
+    align-items: center;        
+    width: 50px;                
+    height: 50px;               
+    background-color: var(--second-color); 
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;     
+    border-radius: 50%;          
+    cursor: pointer;             
+    transition: all 0.3s ease;   
+    position: relative;          
+    overflow: hidden;            
+}
+
+.pagination__button .arrow {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+.pagination__button:hover .arrow {
+    animation: moveArrow 1s infinite alternate;
+}
+
+
+@keyframes moveArrow {
+    0% {
+        transform: translateX(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(10px);
+        opacity: 1;
+    }
+}
+
+.pagination__button:hover {
+    background-color: var(--second-color); 
+    transform: scale(1.1);     
+}
+
+.pagination__button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;       
+    transform: none;           
+}
+
+.pagination__button:disabled .arrow {
+    animation: none;           
 }
 
 .chat-messages {
@@ -1559,7 +1624,7 @@ body.light-theme {
 canvas {
     display: block;
     position: fixed;
-    z-index: -10;
+    
 }
 
 /*Music*/
