@@ -39,6 +39,7 @@
             {% if project.github_link %}
             <a href="{{ project.github_link }}" target="_blank" class="work__button">
                 Github Link <i class='bx bxl-github'></i>
+            </a>
             {% endif %}
         {% endfor %}
     </div>
@@ -87,25 +88,26 @@
                     projectsContainer.innerHTML = "";
                     data.projects.forEach(project => {
                         const projectCard = `
-                            <div class="work__card mix web">
-                                <div class="work__ribbon">
-                                    <button data-description="${project.description}" data-title="${project.name}" class="work__button-ribbon">
-                                        Descrição do Projeto
-                                    </button>
-                                </div>
-                                <img src="${project.image_url}" alt="Imagem de ${project.name}" class="work__img">
-                                <h3 class="work__title">${project.name}</h3>
-                                <hr class="gradient-hr">
-                                <div class="tags-container">
-                                    ${project.tags.map(tag => `<a class="tag">${tag}</a>`).join('')}
-                                </div>
-                                <hr class="gradient-hr">
-                                ${project.website_link ? `<a href="${project.website_link}" target="_blank" class="work__button">Demo <i class='bx bx-right-arrow work__icon'></i></a>` : ''}
-                                ${project.github_link ? `<a href="${project.github_link}" target="_blank" class="work__button"> Github Link<i class='bx bxl-github'></i></a>` : ''}
+                        <div class="work__card mix web">
+                            <div class="work__ribbon">
+                                <button data-description="${project.description}" data-title="${project.name}" class="work__button-ribbon">
+                                    Descrição do Projeto
+                                </button>
                             </div>
-                        `;
-                        projectsContainer.insertAdjacentHTML("beforeend", projectCard);
-                    });
+                            <img src="${project.image_url}" alt="Imagem de ${project.name}" class="work__img">
+                            <h3 class="work__title">${project.name}</h3>
+                            <hr class="gradient-hr">
+                            <div class="tags-container">
+                                ${project.tags.map(tag => `<a class="tag">${tag}</a>`).join('')}
+                            </div>
+                            <hr class="gradient-hr">
+                            ${project.website_link ? `<a href="${project.website_link}" target="_blank" class="work__button">Demo <i class='bx bx-right-arrow work__icon'></i></a>` : ''}
+                            ${project.github_link ? `<a href="${project.github_link}" target="_blank" class="work__button"> Github Link<i class='bx bxl-github'></i></a>` : ''}
+                        </div>
+                    `;
+                    
+                    projectsContainer.insertAdjacentHTML("beforeend", projectCard);
+                    
                     
     
                     // Reatribuir eventos para os botões de descrição
