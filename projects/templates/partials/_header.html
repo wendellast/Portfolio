@@ -40,7 +40,7 @@
                 </li>
                 
                 <li id="openChatBotModal" class="nav__item open-chatbot-button">
-                    <a href="#" class="nav__link">
+                    <a  class="nav__link">
                         <div class="chatbot-icon-container">
                             <i class="bx bx-brain chatbot-icon"></i>
                         </div>
@@ -115,11 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
         element.textContent = "";
         for (const char of text) {
             element.textContent += char;
-            await new Promise((resolve) => setTimeout(resolve, 50));
+            await new Promise((resolve) => setTimeout(resolve, 9));
         }
     };
 
-    // Criar animação de carregamento
+    
     const createLoadingAnimation = () => {
         const loadingDots = document.createElement("span");
         loadingDots.classList.add("loading-dots");
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollToBottom();
 
         try {
-            const response = await fetch("https://hublast.com/gui-api/send-message-gui", {
+            const response = await fetch("https://hublast.com/gui-api/send-message-gui-portfolio", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
