@@ -28,7 +28,13 @@
             <a href="https://github.com/wendellast" target="_blank" class="home__social-link">
                 <i class='bx bxl-github'></i>
             </a>
-            <a download="" href="{% static "assets/resume/wendellast's-Cv.pdf" %}" target="_blank" class="home__social-link">
+            {% for resume in projects %}
+            {% if forloop.first %}
+                <a download="" href="{{ resume.resume.file.url }}" target="_blank" class="home__social-link">
+                
+            {% endif %}
+            {% endfor %}
+
                 <iconify-icon icon="material-symbols:download-rounded"></iconify-icon>
             </a>
             <select id="lang" class="home__social-link">
