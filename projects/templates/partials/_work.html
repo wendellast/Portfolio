@@ -10,6 +10,8 @@
                 <button data-description="{{ project.description }}"  data-title="{{ project.name }}" class="work__button-ribbon">
                     Descrição do Projeto
                 </button>
+                <button id="openChatBotModal" class="open-chatbot-button">Abrir Chatbot</button>
+
             </div>
     
             <img src="{{ project.image.url }}" alt="Imagem de {{ project.name }}" class="work__img">
@@ -84,6 +86,132 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target === modal) {
             modal.style.display = "none";
         }
+    });
+});
+</script>
+
+<div id="chatModal" class="modal">
+    <div class="modal-content">
+        <span id="closeChatModal" class="close-button">&times;</span>
+        <h3 class="modal-title">GUI - Assistente (BETA)</h3>
+        <p class="modal-description"><strong>Pergunte sobre Wendel Alves, conhecido como 'wendellast', esclarecendo dúvidas sobre seu portfólio, habilidades e projetos, etc Pergunte o que quiser! e ia vai tenta responder.</strong></p>
+        <div id="chatMessages" class="chat-messages">
+            <!-- Mensagens aparecerão aqui -->
+        </div>
+        <form id="chatForm" class="chat-form">
+            <input
+                type="text"
+                id="userMessage"
+                placeholder="Digite sua mensagem..."
+                class="chat-input"
+                required
+            />
+            <button type="submit" class="chat-submit-button">Enviar</button>
+        </form>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const chatModal = document.getElementById("chatModal");
+    const openChatBotModalButton = document.getElementById("openChatBotModal");
+    const closeChatModal = document.getElementById("closeChatModal");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatForm = document.getElementById("chatForm");
+    const userMessageInput = document.getElementById("userMessage");
+
+    if (openChatBotModalButton) {
+        openChatBotModalButton.addEventListener("click", () => {
+            chatModal.style.display = "flex";
+        });
+    }
+
+    // Fechar o modal do chatbot
+    closeChatModal.addEventListener("click", () => {
+        chatModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === chatModal) {
+            chatModal.style.display = "none";
+        }
+    });
+
+    // Função para rolagem automática
+    const scrollToBottom = () => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    // Exibir texto palavra por palavra
+    const typeText = async (element, text) => {
+        element.textContent = "";
+        for (const char of text) {
+            element.textContent += char;
+            await new Promise((resolve) => setTimeout(resolve, 50));
+        }
+    };
+
+    // Criar animação de carregamento
+    const createLoadingAnimation = () => {
+        const loadingDots = document.createElement("span");
+        loadingDots.classList.add("loading-dots");
+        loadingDots.textContent = "";
+        let dots = 0;
+        const interval = setInterval(() => {
+            dots = (dots + 1) % 4;
+            loadingDots.textContent = ".".repeat(dots);
+        }, 500);
+
+        loadingDots.cleanup = () => clearInterval(interval);
+
+        return loadingDots;
+    };
+
+    // Envio de mensagens no chatbot
+    chatForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const userMessage = userMessageInput.value;
+
+        // Adicionar mensagem do usuário no chat
+        const userMessageElem = document.createElement("div");
+        userMessageElem.classList.add("message", "user");
+        userMessageElem.textContent = userMessage;
+        chatMessages.appendChild(userMessageElem);
+
+        userMessageInput.value = "";
+
+        // Adicionar mensagem de "processando" com animação
+        const botMessageElem = document.createElement("div");
+        botMessageElem.classList.add("message", "bot");
+        const loadingAnimation = createLoadingAnimation();
+        botMessageElem.appendChild(loadingAnimation);
+        chatMessages.appendChild(botMessageElem);
+
+        scrollToBottom();
+
+        try {
+            const response = await fetch("https://hublast.com/gui-api/send-message-gui", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            const data = await response.json();
+            const botResponse = data.response || "Erro na resposta da API.";
+
+            // Remover animação de carregamento e adicionar resposta real
+            loadingAnimation.cleanup();
+            botMessageElem.removeChild(loadingAnimation);
+            await typeText(botMessageElem, botResponse);
+        } catch (error) {
+            console.error("Erro ao enviar mensagem:", error);
+            loadingAnimation.cleanup();
+            botMessageElem.textContent = "Bot: Ocorreu um erro ao processar sua mensagem. Tente novamente.";
+        }
+
+        scrollToBottom();
     });
 });
 </script>

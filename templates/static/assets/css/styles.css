@@ -27,6 +27,8 @@
     --second-hue: 219;
     --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
     --first-color-alt: hsl(var(--first-hue), var(--sat), 71%);
+    --second-color: hsl(calc(var(--first-hue) + 10), calc(var(--sat) - 10%), calc(var(--lig) - 5%));
+
     /* -4% */
     --title-color: hsl(var(--second-hue), 15%, 95%);
     --text-color: hsl(var(--second-hue), 8%, 75%);
@@ -849,7 +851,104 @@ body.light-theme {
     background-color: var(--first-color);
 }
 
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--text-color-light);
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-color);
+}
 
+.message {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 12px;
+    word-wrap: break-word;
+    animation: slideIn 0.3s;
+    color: var(--text-color);
+}
+
+.message.user {
+    align-self: flex-end;
+    color: var(--body-color);
+    background-color: var(--second-color);
+    text-align: right;
+}
+
+.message.bot {
+    align-self: flex-start;
+    color: var(--body-color);
+    background-color: var(--first-color-alt);
+    text-align: left;
+}
+
+.chat-form {
+    display: flex;
+    gap: 10px;
+    
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.chat-form input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--text-color-light);
+    border-radius: 8px;
+    background: whitesmoke;
+    color: var(--body-color);
+    
+}
+
+.chat-form button {
+    padding: 10px 20px;
+    background-color: var(--body-color);
+    color: var(--title-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chat-form button:hover {
+    background-color: var(--first-color-alt);
+}
+
+.loading-dots {
+    font-size: 1.2rem;
+    color: var(--body-color);
+    display: inline-block;
+    font-style: italic;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 
@@ -897,15 +996,7 @@ body.light-theme {
     color: #8b008b;
 }
 
-/* Modal Image */
-.modal-img {
-    width: 80%;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
+/* Modal Image *
 
 
 
@@ -913,7 +1004,7 @@ body.light-theme {
 .modal-title {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: #4b0082;
+    color: var(--title-color);
     font-weight: 600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -921,7 +1012,7 @@ body.light-theme {
 /* Modal Description */
 .modal-description {
     font-size: 1.1rem;
-    color: #333;
+    color: var(--body-color);
     line-height: 1.6;
     font-family: var(--font-medium), sans-serif;
 }
