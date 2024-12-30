@@ -15,6 +15,7 @@ services:
       - portfolio_data
     networks:
       - project_network
+    restart: always
 
   portfolio_data:
     image: postgres:17
@@ -28,6 +29,7 @@ services:
       - "${POSTGRES_PORT}:5432"
     networks:
       - project_network
+    restart: always
 
 
 volumes:
