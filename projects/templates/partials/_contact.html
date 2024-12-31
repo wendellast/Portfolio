@@ -1,5 +1,5 @@
 <section class="contact section" id="contact">
-    <sapn id="touchl" class="section__subtitle">Get in touch</sapn>
+    <span id="touchl" class="section__subtitle">Get in touch</span>
     <h3 id="contamell" class="section__title">Contact Me</h3>
 
     <div class="contact__container container grid">
@@ -40,43 +40,26 @@
         </div>
 
         <div class="contact__content">
-            <h3 id="writeme" class="contact__title contact__title-form">Write Me your Message</h3>
+            <h3 class="contact__title">Write me your project</h3>
 
-            <form action="https://api.staticforms.xyz/submit" class="contact__form" id="contact-form" method="POST">
-                {% csrf_token %}
+            <form action="" class="contact__form">
                 <div class="contact__form-div">
                     <label for="name" class="contact__form-tag">Name</label>
-                    <input type="text" name="name" placeholder="Your Name" class="contact__form-input" id="name" required>
+                    <input type="text" name="name" id="name" class="contact__form-input" placeholder="Insert your name" required>
                 </div>
-            
+
                 <div class="contact__form-div">
                     <label for="email" class="contact__form-tag">Email</label>
-                    <input type="email" name="email" placeholder="Your Email" class="contact__form-input" id="email" required>
+                    <input type="email" name="email" id="email" class="contact__form-input" placeholder="Insert your email" required>
                 </div>
-            
+
                 <div class="contact__form-div contact__form-area">
                     <label for="message" class="contact__form-tag">Message</label>
-                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Write your Message" class="contact__form-input" required></textarea>
+                    <textarea name="message" id="message" cols="30" rows="10" class="contact__form-input" placeholder="Write your message" required></textarea>
                 </div>
-            
-                <div class="contact__form-div" style="display:none;">
-                    <label for="honeypot" class="contact__form-tag">Honeypot</label>
-                    <input type="text" name="honeypot" id="honeypot">
-                </div>
-            
-                <input type="hidden" name="accessKey" value="bb1be617-4b46-40c7-b50a-3653d0431faa">
-                <input type="hidden" name="subject" value="Contact us from - wendelalvesj@hotmail.com">
-                <input type="hidden" name="replyTo" value="@">
-                <input type="hidden" name="redirectTo" value="https://hublast.com/success-email/">
-            
-                <button type="submit" class="button" id="submit">
-                    Send Message
-                </button>
+
+                <button type="submit" class="button">Send Message</button>
             </form>
-            
-        
-
         </div>
-
+    </div>
 </section>
-

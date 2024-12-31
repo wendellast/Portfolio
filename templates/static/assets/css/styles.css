@@ -83,6 +83,7 @@
 
 html {
     scroll-behavior: smooth;
+    
 }
 
 body,
@@ -97,7 +98,9 @@ body {
     background-color: var(--body-color);
     color: var(--text-color);
     transition: 0.4s;
-    /* for light mode animation */
+    
+    zoom: 0.9; 
+    
 }
 
 h1,
@@ -1236,6 +1239,8 @@ body.light-theme {
 .contact__form-area textarea {
     resize: none;
 }
+
+
 
 /*=============== FOOTER ===============*/
 .footer {

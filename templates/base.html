@@ -56,6 +56,7 @@
 
 
 
+
     <!--=============== SCROLLREVEAL ===============-->
 
     <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
@@ -75,11 +76,30 @@
     
     <script src=" {% static "assets/particles.js/demo/js/app.js" %} "></script>
     
-
-    <!--=============== MAIN JS ===============-->
+        <!--=============== MAIN JS ===============-->
     <script src=" {% static "assets/js/main.js" %} "></script>
     <script src=" {% static "assets/js/language.js" %} "></script>
-    
+
+    <script>
+      const srSite = ScrollReveal({
+         origin: "bottom",
+         distance: "30px",
+         duration: 2500,
+         delay: 400,
+         reset: true // Manter o reset como true para o resto do site
+     });
+  
+     srSite.reveal(`.section, .content, .other-elements`, {
+         delay: 100,
+         scale: 0.9,
+         origin: "bottom",
+         distance: "30px"
+     });
+     ScrollReveal().reveal('.footer, .footer__container', {
+         reset: false
+     });
+  
+  </script>
 
  
 
