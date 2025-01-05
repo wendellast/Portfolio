@@ -17,8 +17,8 @@
         {% for project in projects %}
         <div class="work__card mix web">
             <div class="work__ribbon">
-                <button data-description="{{ project.description }}"  data-title="{{ project.name }}" class="work__button-ribbon">
-                    Descrição do Projeto
+                <button data-description="{{ project.description }}"  data-title="{{ project.name }}" id="description-button-project" class="work__button-ribbon">
+                    Project Description
                 </button>
             </div>
             <img src="{{ project.image.url }}" alt="Imagem de {{ project.name }}" class="work__img">

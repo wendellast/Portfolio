@@ -57,49 +57,30 @@
 
 
 
+  
     <!--=============== SCROLLREVEAL ===============-->
-
-    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
-    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="{% static "assets/js/scrollreveal.min.js" %}"></script>
+    
     
     <!--=============== SWIPER JS ===============-->
     
     <script src=" {% static "assets/js/swiper-bundle.min.js" %} "></script>
-
+    
     <!--=============== MIXITUP FILTER ===============-->
     
     <script src=" {% static "assets/js/mixitup.min.js" %} "></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
-
+    
     <!--Backgroud-->
     <script src=" {% static "assets/particles.js/particles.js" %} "></script>
     
     <script src=" {% static "assets/particles.js/demo/js/app.js" %} "></script>
     
-        <!--=============== MAIN JS ===============-->
+    <!--=============== MAIN JS ===============-->
+    
     <script src=" {% static "assets/js/main.js" %} "></script>
     <script src=" {% static "assets/js/language.js" %} "></script>
-
-    <script>
-      const srSite = ScrollReveal({
-         origin: "bottom",
-         distance: "30px",
-         duration: 2500,
-         delay: 400,
-         reset: true // Manter o reset como true para o resto do site
-     });
-  
-     srSite.reveal(`.section, .content, .other-elements`, {
-         delay: 100,
-         scale: 0.9,
-         origin: "bottom",
-         distance: "30px"
-     });
-     ScrollReveal().reveal('.footer, .footer__container', {
-         reset: false
-     });
-  
-  </script>
+    
 
  
 
