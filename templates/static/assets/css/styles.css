@@ -941,19 +941,20 @@ body.light-theme {
     word-wrap: break-word;
     animation: slideIn 0.3s;
     color: var(--text-color);
+    font-size: 0.85rem;
 }
 
 .message.user {
     align-self: flex-end;
     color: var(--body-color);
-    background-color: var(--second-color);
+    background-color: rgb(177, 172, 224);;
     text-align: right;
 }
 
 .message.bot {
     align-self: flex-start;
     color: var(--body-color);
-    background-color: var(--first-color-alt);
+    background-color: rgb(160, 156, 202);;
     text-align: left;
 }
 
@@ -971,13 +972,14 @@ body.light-theme {
     border: 1px solid var(--text-color-light);
     border-radius: 8px;
     background: whitesmoke;
-    color: var(--body-color);
+    color: rgb(42, 38, 90);
+    
     
 }
 
 .chat-form button {
     padding: 10px 20px;
-    background-color: var(--body-color);
+    background-color: rgb(98, 92, 158);;
     color: var(--title-color);
     border: none;
     border-radius: 8px;
@@ -1069,7 +1071,7 @@ body.light-theme {
 
 /* Modal Content */
 .modal-content {
-    background: linear-gradient(145deg,var(--first-color-alt), var(--first-color));
+    background-color: rgb(198, 193, 243); 
     padding: 30px;
     border-radius: 16px;
     max-width: 600px;
@@ -1089,12 +1091,12 @@ body.light-theme {
     cursor: pointer;
     font-size: 28px;
     font-weight: bold;
-    color: #6a0dad;
+    color: rgb(98, 92, 158);
     transition: color 0.3s ease;
 }
 
 .close-button:hover {
-    color: #8b008b;
+    color: #be96da;
 }
 
 /* Modal Image *
@@ -1105,7 +1107,7 @@ body.light-theme {
 .modal-title {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: var(--title-color);
+    color: rgb(61, 58, 94);
     font-weight: 600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -1114,6 +1116,13 @@ body.light-theme {
 .modal-description {
     font-size: 1.1rem;
     color: var(--body-color);
+    line-height: 1.6;
+    font-family: var(--font-medium), sans-serif;
+}
+
+.modal-description-ia {
+    font-size: 0.90rem;
+    color: rgb(42, 38, 90);
     line-height: 1.6;
     font-family: var(--font-medium), sans-serif;
 }
