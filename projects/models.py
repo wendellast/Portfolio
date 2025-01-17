@@ -14,6 +14,7 @@ class Project(models.Model):
     tags = models.CharField(max_length=255, help_text="Separe as tags por vírgulas")
     website_link = models.URLField(blank=True, null=True)
     github_link = models.URLField(blank=True, null=True)
+    integer_field = models.IntegerField(help_text="Ordem projeto", blank=True, null=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 

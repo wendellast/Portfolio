@@ -38,7 +38,7 @@
                         <i class='bx bx-message-square-dots'></i>
                     </a>
                 </li>
-                
+
                 <li id="openChatBotModal" class="nav__item open-chatbot-button">
                     <a  class="nav__link">
                         <div class="chatbot-icon-container">
@@ -46,12 +46,12 @@
                         </div>
                     </a>
                 </li>
-                
-                
+
+
             </ul>
         </div>
 
-        <!--=============== theme change button ===============-->
+
         <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
 
     </nav>
@@ -62,9 +62,9 @@
     <div class="modal-content">
         <span id="closeChatModal" class="close-button">&times;</span>
         <h3 class="modal-title">GUI - Assistente (BETA)</h3>
-        <p class="modal-description-ia"><strong>Dúvidas sobre seu portfólio, habilidades e projetos, etc Pergunte o que quiser! e ia vai tenta responder.</strong></p>
+        <p class="modal-description-ia"><strong>Tem dúvidas sobre o portfólio, habilidades ou projetos? Pergunte o que quiser, e a IA fará o melhor para ajudar!.</strong></p>
         <div id="chatMessages" class="chat-messages">
-            <!-- Mensagens aparecerão aqui -->
+
         </div>
         <form id="chatForm" class="chat-form">
             <input
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fechar o modal do chatbot
+
     closeChatModal.addEventListener("click", () => {
         chatModal.style.display = "none";
     });
@@ -105,12 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Função para rolagem automática
+
     const scrollToBottom = () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     };
 
-    // Exibir texto palavra por palavra
+
     const typeText = async (element, text) => {
         element.textContent = "";
         for (const char of text) {
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    
+
     const createLoadingAnimation = () => {
         const loadingDots = document.createElement("span");
         loadingDots.classList.add("loading-dots");
@@ -135,12 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return loadingDots;
     };
 
-    // Envio de mensagens no chatbot
+
     chatForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const userMessage = userMessageInput.value;
 
-        // Adicionar mensagem do usuário no chat
+
         const userMessageElem = document.createElement("div");
         userMessageElem.classList.add("message", "user");
         userMessageElem.textContent = userMessage;
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         userMessageInput.value = "";
 
-        // Adicionar mensagem de "processando" com animação
+
         const botMessageElem = document.createElement("div");
         botMessageElem.classList.add("message", "bot");
         const loadingAnimation = createLoadingAnimation();
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
             const botResponse = data.response || "Erro na resposta da API.";
 
-            // Remover animação de carregamento e adicionar resposta real
+
             loadingAnimation.cleanup();
             botMessageElem.removeChild(loadingAnimation);
             await typeText(botMessageElem, botResponse);

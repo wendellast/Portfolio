@@ -43,8 +43,7 @@ document.getElementById("lang").addEventListener("change", function() {
         "worrk2": "Projetos",
         "contact2k": "Contato",
         "abountt":"Sobre",
-        "myblog":"Meu Blog",
-        "description-button-project":"Descrição Do Projeto"
+        "myblog":"Meu Blog"
     }
 
     };
@@ -52,7 +51,6 @@ document.getElementById("lang").addEventListener("change", function() {
 
 
     // Atualize o conteúdo do site com as traduções corretas
-    document.getElementById("description-button-project").textContent = translations[lang]["description-button-project"];
     document.getElementById("myblog").textContent = translations[lang]["myblog"];
     document.getElementById("abountt").textContent = translations[lang]["abountt"];
     document.getElementById("im").textContent = translations[lang]["im"];
