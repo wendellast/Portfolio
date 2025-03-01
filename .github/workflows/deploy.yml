@@ -1,0 +1,35 @@
+name: "Deploy"
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+              - name: Checkout
+                uses: actions/checkout@v4
+
+              - name: Copy files to VPS
+                uses: appleboy/scp-action@v0.1.7
+                with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.KEY }}
+                  port: 22
+                  source: "."
+                  target: "/root/Developer/Portfolio"
+
+              - name: Deploy Application
+                uses: appleboy/ssh-action@v1.2.1
+                with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.KEY }}
+                  port: 22
+                  script: |
+                    cd /root/Developer/Portfolio
+                    docker compose down
+                    docker compose up --build -d
