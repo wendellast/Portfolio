@@ -61,7 +61,7 @@
 <div id="chatModal" class="modal">
     <div class="modal-content">
         <span id="closeChatModal" class="close-button">&times;</span>
-        <h3 class="modal-title">GUI - Assistente (BETA)</h3>
+        <h3 class="modal-title">GUI - Assistente</h3>
         <p class="modal-description-ia"><strong>Tem dúvidas sobre o portfólio, habilidades ou projetos? Pergunte o que quiser, e a IA fará o melhor para ajudar!.</strong></p>
         <div id="chatMessages" class="chat-messages">
 
@@ -80,106 +80,115 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const chatModal = document.getElementById("chatModal");
-    const openChatBotModalButton = document.getElementById("openChatBotModal");
-    const closeChatModal = document.getElementById("closeChatModal");
-    const chatMessages = document.getElementById("chatMessages");
-    const chatForm = document.getElementById("chatForm");
-    const userMessageInput = document.getElementById("userMessage");
-
-    if (openChatBotModalButton) {
-        openChatBotModalButton.addEventListener("click", () => {
-            chatModal.style.display = "flex";
-        });
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+        const chatModal = document.getElementById("chatModal");
+        const openChatBotModalButton = document.getElementById("openChatBotModal");
+        const closeChatModal = document.getElementById("closeChatModal");
+        const chatMessages = document.getElementById("chatMessages");
+        const chatForm = document.getElementById("chatForm");
+        const userMessageInput = document.getElementById("userMessage");
 
 
-    closeChatModal.addEventListener("click", () => {
-        chatModal.style.display = "none";
-    });
+        function simpleMarkdown(text) {
 
-    window.addEventListener("click", (event) => {
-        if (event.target === chatModal) {
-            chatModal.style.display = "none";
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" style="color: #3a2e8a; font-weight: bold; text-decoration: underline;">$1</a>');
+
+            text = text.replace(/\n/g, '<br>');
+            return text;
         }
-    });
+        const typeText = async (element, text) => {
+            element.innerHTML = "";
+            let buffer = "";
 
+            for (const char of text) {
+                buffer += char;
 
-    const scrollToBottom = () => {
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    };
+                element.innerHTML = simpleMarkdown(buffer);
+                await new Promise((resolve) => setTimeout(resolve, 9));
+            }
+        };
 
-
-    const typeText = async (element, text) => {
-        element.textContent = "";
-        for (const char of text) {
-            element.textContent += char;
-            await new Promise((resolve) => setTimeout(resolve, 9));
-        }
-    };
-
-
-    const createLoadingAnimation = () => {
-        const loadingDots = document.createElement("span");
-        loadingDots.classList.add("loading-dots");
-        loadingDots.textContent = "";
-        let dots = 0;
-        const interval = setInterval(() => {
-            dots = (dots + 1) % 4;
-            loadingDots.textContent = ".".repeat(dots);
-        }, 500);
-
-        loadingDots.cleanup = () => clearInterval(interval);
-
-        return loadingDots;
-    };
-
-
-    chatForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const userMessage = userMessageInput.value;
-
-
-        const userMessageElem = document.createElement("div");
-        userMessageElem.classList.add("message", "user");
-        userMessageElem.textContent = userMessage;
-        chatMessages.appendChild(userMessageElem);
-
-        userMessageInput.value = "";
-
-
-        const botMessageElem = document.createElement("div");
-        botMessageElem.classList.add("message", "bot");
-        const loadingAnimation = createLoadingAnimation();
-        botMessageElem.appendChild(loadingAnimation);
-        chatMessages.appendChild(botMessageElem);
-
-        scrollToBottom();
-
-        try {
-            const response = await fetch("https://hublast.com/gui-api/send-message-gui-portfolio", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ message: userMessage }),
+        if (openChatBotModalButton) {
+            openChatBotModalButton.addEventListener("click", () => {
+                chatModal.style.display = "flex";
             });
-
-            const data = await response.json();
-            const botResponse = data.response || "Erro na resposta da API.";
-
-
-            loadingAnimation.cleanup();
-            botMessageElem.removeChild(loadingAnimation);
-            await typeText(botMessageElem, botResponse);
-        } catch (error) {
-            console.error("Erro ao enviar mensagem:", error);
-            loadingAnimation.cleanup();
-            botMessageElem.textContent = "Bot: Ocorreu um erro ao processar sua mensagem. Tente novamente.";
         }
 
-        scrollToBottom();
+        closeChatModal.addEventListener("click", () => {
+            chatModal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === chatModal) {
+                chatModal.style.display = "none";
+            }
+        });
+
+        const scrollToBottom = () => {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        const createLoadingAnimation = () => {
+            const loadingDots = document.createElement("span");
+            loadingDots.classList.add("loading-dots");
+            loadingDots.textContent = "";
+            let dots = 0;
+            const interval = setInterval(() => {
+                dots = (dots + 1) % 4;
+                loadingDots.textContent = ".".repeat(dots);
+            }, 500);
+
+            loadingDots.cleanup = () => clearInterval(interval);
+
+            return loadingDots;
+        };
+
+        chatForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const userMessage = userMessageInput.value;
+
+            const userMessageElem = document.createElement("div");
+            userMessageElem.classList.add("message", "user");
+            userMessageElem.textContent = userMessage;
+            chatMessages.appendChild(userMessageElem);
+
+            userMessageInput.value = "";
+
+            const botMessageElem = document.createElement("div");
+            botMessageElem.classList.add("message", "bot");
+            const loadingAnimation = createLoadingAnimation();
+            botMessageElem.appendChild(loadingAnimation);
+            chatMessages.appendChild(botMessageElem);
+
+            scrollToBottom();
+
+            try {
+                const response = await fetch("https://hublast.com/agente-ia/gui-wendellast/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ text: userMessage }),
+                });
+
+                const data = await response.json();
+                const botResponse = data.response || "Erro na resposta da API.";
+
+                loadingAnimation.cleanup();
+                botMessageElem.removeChild(loadingAnimation);
+                await typeText(botMessageElem, botResponse);
+            } catch (error) {
+                console.error("Erro ao enviar mensagem:", error);
+                loadingAnimation.cleanup();
+                botMessageElem.innerHTML = "Bot: Ocorreu um erro ao processar sua mensagem. Tente novamente.";
+            }
+
+            scrollToBottom();
+        });
     });
-});
-</script>
+    </script>
+
