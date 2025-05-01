@@ -26,8 +26,8 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() in ['true', '1']
 
 
-ALLOWED_HOSTS = [os.getenv('host1'), os.getenv('host2'), os.getenv('host3')]
-CSRF_TRUSTED_ORIGINS = [f"https://{os.getenv('host1')}", f"https://{os.getenv('host2')}", f"http://{os.getenv('host3')}"]
+ALLOWED_HOSTS = [os.getenv('host1'), os.getenv('host2'), os.getenv('host3'), os.getenv('host4')]
+CSRF_TRUSTED_ORIGINS = [f"https://{os.getenv('host1')}", f"https://{os.getenv('host2')}", f"http://{os.getenv('host3')}", f"http://{os.getenv('host4')}"]
 
 # Application definition
 
