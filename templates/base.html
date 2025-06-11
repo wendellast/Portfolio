@@ -4,57 +4,56 @@
 
 <head>
     {% include "partials/_head.html" %}
-    <title> Wendellast's Portfolio</title>
+     <title> Wendellast's Portfolio</title>
 </head>
 
 <body>
-    {% block content %}{% endblock content %}
+   {% block content %}{% endblock content %}
 
-    {% load static %}
+   {% load static %}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var playButton = document.getElementById('playButton');
-            var audioPlayer = document.getElementById('audioPlayer');
-            var screenSize = window.innerWidth;
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var playButton = document.getElementById('playButton');
+    var audioPlayer = document.getElementById('audioPlayer');
+    var screenSize = window.innerWidth;
 
-            // Caminho do áudio gerado pelo Django
-            var audioSrc = "{% static 'assets/music/snowfall.mp3' %}";
+    // Caminho do áudio gerado pelo Django
+    var audioSrc = "{% static 'assets/music/snowfall.mp3' %}";
 
-            if (screenSize > 600) {
-                playButton.style.display = 'none';
+    if (screenSize > 600) {
+      playButton.style.display = 'none';
 
-                audioPlayer.outerHTML = `
+      audioPlayer.outerHTML = `
         <audio id="minhaMusica" controls autoplay>
           <source src="${audioSrc}" type="audio/mp3">
         </audio>
       `;
-            }
+    }
 
-            var newAudioPlayer = document.getElementById('audioPlayer');
-            playButton.addEventListener('click', function () {
-                if (newAudioPlayer && newAudioPlayer.paused) {
-                    newAudioPlayer.play();
-                    playButton.textContent = 'Pause';
-                } else {
-                    newAudioPlayer.pause();
-                    playButton.textContent = 'Play';
-                }
-            });
+    var newAudioPlayer = document.getElementById('audioPlayer');
+    playButton.addEventListener('click', function () {
+      if (newAudioPlayer && newAudioPlayer.paused) {
+        newAudioPlayer.play();
+        playButton.textContent = 'Pause';
+      } else {
+        newAudioPlayer.pause();
+        playButton.textContent = 'Play';
+      }
+    });
 
-            if (newAudioPlayer) {
-                newAudioPlayer.addEventListener('ended', function () {
-                    playButton.textContent = 'Play';
-                });
-            } else {
-                audioPlayer.addEventListener('ended', function () {
-                    playButton.textContent = 'Play';
-                });
-            }
-        });
-    </script>
+    if (newAudioPlayer) {
+      newAudioPlayer.addEventListener('ended', function () {
+        playButton.textContent = 'Play';
+      });
+    } else {
+      audioPlayer.addEventListener('ended', function () {
+        playButton.textContent = 'Play';
+      });
+    }
+  });
+</script>
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSY60F9F7W"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -67,21 +66,22 @@
 
 
 
+
     <!--=============== SCROLLREVEAL ===============-->
-    <script src="{% static " assets/js/scrollreveal.min.js" %}"></script>
+    <script src="{% static "assets/js/scrollreveal.min.js" %}"></script>
 
 
     <!--=============== SWIPER JS ===============-->
 
-    <script src=" {% static " assets/js/swiper-bundle.min.js" %} "></script>
+    <script src=" {% static "assets/js/swiper-bundle.min.js" %} "></script>
 
     <!--=============== MIXITUP FILTER ===============-->
 
     <script src=" {% static "assets/js/mixitup.min.js" %} "></script>
-    <script src=" https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
     <!--Backgroud-->
-    <script src=" {% static " assets/particles.js/particles.js" %} "></script>
+    <script src=" {% static "assets/particles.js/particles.js" %} "></script>
 
     <script src=" {% static "assets/particles.js/demo/js/app.js" %} "></script>
 
